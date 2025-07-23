@@ -19,38 +19,38 @@ sudo apt install python3 python3-venv python3-pip -y
 ## Instalasi
 
 1. Clone repository:
-   ```bash
-   git clone https://github.com/yourusername/flask-minimal.git
-   cd flask-minimal
-   ```
+```bash
+git clone https://github.com/yourusername/flask-minimal.git
+cd flask-minimal
+```
 
 2. Buat virtual environment (disarankan):
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
 3. Install dependensi yang diperlukan:
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+pip install -r requirements.txt
+```
 
 4. Jalankan aplikasi:
-   ```bash
-   python app.py
-   ```
+```bash
+python app.py
+```
 
    
 
 Aplikasi Flask akan mulai berjalan, dan Anda dapat melihatnya dengan membuka http://localhost:5000 di browser Anda.
 
 
-## Bonus
+## Tambahan
 
-Agar Flask-app otomatis berjalan setiap kali EC2 instance dinyalakan kita bisa menggunakan systemd, caranya
+Agar Flask-app otomatis berjalan setiap kali EC2 instance dinyalakan kita bisa menggunakan systemd, caranya :
 1. Buat file service untuk systemd
- ```
-   [Unit]
+```
+ [Unit]
 Description=Flask Minimal App
 After=network.target
 
@@ -67,16 +67,16 @@ RestartSec=10
 WantedBy=multi-user.target
 ```
 2. Implementasi
-   Simpan file service
-   ```bash
-   sudo nano /etc/systemd/system/flask-app.service
-   ```
-   Paste isi file service di atas, sesuaikan path jika berbeda.
+Simpan file service
+```bash
+sudo nano /etc/systemd/system/flask-app.service
+```
+Paste isi file service di atas, sesuaikan path jika berbeda.
 
-   Aktifkan dan jalankan service
+Aktifkan dan jalankan service
 
 ```bash
-   # Reload systemd
+# Reload systemd
 sudo systemctl daemon-reload
 
 # Enable service (akan start otomatis saat boot)
